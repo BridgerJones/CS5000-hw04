@@ -1,0 +1,3 @@
+net1's accuracy on evaluation data: 9282 / 10000
+net2's accuracy on evaluation data: 5616 / 10000
+net3's accuracy on evaluation data: 5785 / 10000

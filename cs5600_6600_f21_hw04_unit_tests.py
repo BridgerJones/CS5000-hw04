@@ -20,7 +20,7 @@ from cs5600_6600_f21_hw04 import collect_3_hidden_layer_net_stats
 from mnist_loader import load_data_wrapper
 
 ## change this directory accordingly.
-DIR_PATH = '/home/vladimir/teaching/AI/F21/hw/hw04/sols/nets/'
+DIR_PATH = './'
 
 train_d, valid_d, test_d = load_data_wrapper()
 
@@ -52,30 +52,30 @@ class cs5600_6600_f21_hw02_uts(unittest.TestCase):
     #     plot_accuracies(net_stats[1], net_stats[3], 10)
 
 
-    def test_ut03(self):
-        epochs = 30
-        d = collect_1_hidden_layer_net_stats(10, 11,
-                                             CrossEntropyCost,
-                                             epochs, 10, 0.1, 0.0,
-                                             train_d, test_d)
-        assert len(d) == 2
-        assert len(d[10]) == 4
-        assert len(d[11]) == 4
-        assert len(d[10][0]) == epochs
-        assert len(d[10][1]) == epochs
-        assert len(d[10][2]) == epochs
-        assert len(d[10][3]) == epochs
-        assert len(d[11][0]) == epochs
-        assert len(d[11][1]) == epochs
-        assert len(d[11][2]) == epochs
-        assert len(d[11][3]) == epochs
-        for k, v in d.items():
-            print('{} --> {}'.format(k, v))
-
+    # def test_ut03(self):
+    #     epochs = 30
+    #     d = collect_1_hidden_layer_net_stats(10, 11,
+    #                                          CrossEntropyCost,
+    #                                          epochs, 10, 0.1, 0.0,
+    #                                          train_d, test_d)
+    #     assert len(d) == 2
+    #     assert len(d[10]) == 4
+    #     assert len(d[11]) == 4
+    #     assert len(d[10][0]) == epochs
+    #     assert len(d[10][1]) == epochs
+    #     assert len(d[10][2]) == epochs
+    #     assert len(d[10][3]) == epochs
+    #     assert len(d[11][0]) == epochs
+    #     assert len(d[11][1]) == epochs
+    #     assert len(d[11][2]) == epochs
+    #     assert len(d[11][3]) == epochs
+    #     for k, v in d.items():
+    #         print('{} --> {}'.format(k, v))
+    #
     # def test_ut04(self):
     #     d = collect_2_hidden_layer_net_stats(2, 3,
     #                                          CrossEntropyCost,
-    #                                          2, 10, 0.1, 0.0,
+    #                                          30, 10, 0.1, 0.0,
     #                                          train_d, test_d)
     #     assert len(d) == 4
     #     assert len(d['2_2']) == 4
@@ -88,7 +88,7 @@ class cs5600_6600_f21_hw02_uts(unittest.TestCase):
     # def test_ut05(self):
     #     d = collect_3_hidden_layer_net_stats(2, 3,
     #                                          CrossEntropyCost,
-    #                                          2, 10, 0.1, 0.0,
+    #                                          30, 10, 0.1, 0.0,
     #                                          train_d, test_d)
     #     assert len(d) == 8
     #     assert len(d['2_2_2']) == 4
@@ -99,16 +99,16 @@ class cs5600_6600_f21_hw02_uts(unittest.TestCase):
     #         print('{} --> {}'.format(k, v))
     #     return d
 
-    # def test_ut06(self, evaluation_data=test_d):
-    #     net1 = load(DIR_PATH + 'net1.json')
-    #     net2 = load(DIR_PATH + 'net2.json')
-    #     net3 = load(DIR_PATH + 'net3.json')
-    #     print("net1's accuracy on evaluation data: {} / {}".format(
-    #         net1.accuracy(evaluation_data), len(evaluation_data)))
-    #     print("net2's accuracy on evaluation data: {} / {}".format(
-    #         net2.accuracy(evaluation_data), len(evaluation_data)))
-    #     print("net3's accuracy on evaluation data: {} / {}".format(
-    #         net3.accuracy(evaluation_data), len(evaluation_data)))
+    def test_ut06(self, evaluation_data=test_d):
+        net1 = load(DIR_PATH + 'net1.json')
+        net2 = load(DIR_PATH + 'net2.json')
+        net3 = load(DIR_PATH + 'net3.json')
+        print("net1's accuracy on evaluation data: {} / {}".format(
+            net1.accuracy(evaluation_data), len(evaluation_data)))
+        print("net2's accuracy on evaluation data: {} / {}".format(
+            net2.accuracy(evaluation_data), len(evaluation_data)))
+        print("net3's accuracy on evaluation data: {} / {}".format(
+            net3.accuracy(evaluation_data), len(evaluation_data)))
 
 if __name__ == '__main__':
     unittest.main()
